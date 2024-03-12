@@ -1,0 +1,76 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook checkpoints
+#.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Linux system files
+.*~
+
+# Virtual environments
+venv/
+ENV/
+pyvenv.cfg
+
+# Python environments data
+python-version
+
+# Machine learning data and model files
+#*.pkl
+#*.h5
+#*.ckpt
+# Exclude directories containing large datasets or model weights
+data/
+#models/
+#logs/
+#outputs/
+
+# dotenv environment variable files
+.env
+.env.*
+
+# Exclude user-specific project settings
+.vscode/
