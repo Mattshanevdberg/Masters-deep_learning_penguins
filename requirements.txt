@@ -4,4 +4,4 @@ matplotlib==3.4.3
 tensorflow==2.8.0
 scikit-learn==0.24.2
 yolov8
-
+# cuurent CUDA version using = release 11.8
