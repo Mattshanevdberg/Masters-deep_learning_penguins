@@ -64,7 +64,7 @@ python-version
 #*.ckpt
 # Exclude directories containing large datasets or model weights
 data/
-#models/
+runs/
 #logs/
 #outputs/
 
