@@ -16,13 +16,13 @@ def run_script(script_name):
 
 # Call the function
 
-#run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_scn.py')
+run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_scn.py')
 
-#run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_ptn.py')
+run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_ptn.py')
 
-#run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_scs.py')
+run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_scs.py')
 
-#run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_pts.py')
+run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_pts.py')
 
 run_script('/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_scm.py')
 
