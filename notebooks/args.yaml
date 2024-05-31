@@ -2,10 +2,10 @@ task: detect
 mode: train
 model: #
 data: #/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/processed/YoloV8_dataset_OI7_parent/YoloV8_dataset_OI7.yaml
-epochs: 300
+epochs: 150
 time: null
-patience: 100
-batch: 16
+patience: 50
+batch: 7
 imgsz: 640
 save: true
 save_period: -1
@@ -20,7 +20,7 @@ optimizer: AdamW
 verbose: true
 seed: 0
 deterministic: true
-single_cls: false
+single_cls: true
 rect: false
 cos_lr: false
 close_mosaic: 10
@@ -35,7 +35,7 @@ mask_ratio: 4
 dropout: 0.0
 val: true
 split: val
-save_json: false
+save_json: true
 save_hybrid: false
 conf: null
 iou: 0.7
