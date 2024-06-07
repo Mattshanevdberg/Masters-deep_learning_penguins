@@ -5,7 +5,7 @@ data: #/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/pro
 epochs: 150
 time: null
 patience: 50
-batch: 7
+batch: 6
 imgsz: 640
 save: true
 save_period: -1

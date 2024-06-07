@@ -4,12 +4,13 @@ import shutil
 
 # list of paths to data
 PARENT_PATH_RAW_DATA = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/raw/OpenImagesV7/'
-#K5ParentList = ['k5_data_split_list_1', 'k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
-K5ParentList = ['k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
+K5ParentList = ['k5_data_split_list_1', 'k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
+#K5ParentList = ['k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
 K5_YOLO_DATA_PATH = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/processed/YoloV8_dataset_OI7_parent_K5/'
 list_of_dir_to_clear = ['YoloV8_dataset_OI7_K5/images/train', 'YoloV8_dataset_OI7_K5/images/val', 'YoloV8_dataset_OI7_K5/labels/train', 'YoloV8_dataset_OI7_K5/labels/val']
 list_of_model_names = ['yolov8n.yaml', 'yolov8n.pt', 'yolov8s.yaml', 'yolov8s.pt', 'yolov8m.yaml', 'yolov8m.pt']
 script_name = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen.py'
+script_name_val = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen.py'
 cfg_path = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/args.yaml'
 
 ### Pre-training loading of data into correct format and directories for k5 experiments
@@ -167,7 +168,7 @@ def run_script(script_name, list_of_args):
     
     # Print output and error if any
     print("Output:", result.stdout)
-    print("Errors:", result.stderr)
+    #print("Errors:", result.stderr)
 
     # Check the return code
     if result.returncode == 0:
