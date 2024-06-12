@@ -74,7 +74,7 @@ print(model_name, cfg_path, run_name)
 
 Val(model_name, run_name)
 
-Train(model_name, cfg_path, run_name)
+#Train(model_name, cfg_path, run_name)
 
 
 

@@ -21,7 +21,7 @@ def Train(model_name, cfg_path, run_name):
     data_path = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/processed/YoloV8_dataset_OI7_parent_K5/YoloV8_dataset_OI7_K5.yaml'
     model = YOLO(model_name)
     if 'yolov8m' in model_name:
-        model.train(data=data_path, cfg=cfg_path, name=run_name, batch=5)
+        model.train(data=data_path, cfg=cfg_path, name=run_name, batch=2)
     else:
         results = model.train(data=data_path, cfg=cfg_path, name=run_name)
 

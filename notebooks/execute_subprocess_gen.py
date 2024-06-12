@@ -5,12 +5,11 @@ import shutil
 # list of paths to data
 PARENT_PATH_RAW_DATA = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/raw/OpenImagesV7/'
 K5ParentList = ['k5_data_split_list_1', 'k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
-#K5ParentList = ['k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
 K5_YOLO_DATA_PATH = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/processed/YoloV8_dataset_OI7_parent_K5/'
 list_of_dir_to_clear = ['YoloV8_dataset_OI7_K5/images/train', 'YoloV8_dataset_OI7_K5/images/val', 'YoloV8_dataset_OI7_K5/labels/train', 'YoloV8_dataset_OI7_K5/labels/val']
 list_of_model_names = ['yolov8n.yaml', 'yolov8n.pt', 'yolov8s.yaml', 'yolov8s.pt', 'yolov8m.yaml', 'yolov8m.pt']
 script_name = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen.py'
-script_name_val = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen.py'
+script_name_val = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen_val.py'
 cfg_path = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/args.yaml'
 
 ### Pre-training loading of data into correct format and directories for k5 experiments
@@ -182,31 +181,47 @@ def run_script(script_name, list_of_args):
 
 # for loop to step through all the different k-5 combinations
 for K5_curr_Split in K5ParentList:
-    #load the current split into a train and val id list
-    K5_val_id_list, K5_train_id_list = perform_train_val_split(K5_curr_Split)
-    print('split lists')
-    print(len(K5_val_id_list), len(K5_train_id_list))
+    # for running a specific split
+    if K5_curr_Split in ['k5_data_split_list_1', 'k5_data_split_list_2']:
 
-    # clear the directories of any previous data from previous splits so that you can then load the new data
-    clear_directories(list_of_dir_to_clear)
-    print('cleared dir')
+        # load the current split into a train and val id list
+        K5_val_id_list, K5_train_id_list = perform_train_val_split(K5_curr_Split)
+        print('split lists')
+        print(len(K5_val_id_list), len(K5_train_id_list))
 
-    # move the images and annotations into the correct directories based on the current split
-    move_images_and_annotations_to_correct_folders(list_of_dir_to_clear)
-    print('moved images and anno to dirs')
+        # clear the directories of any previous data from previous splits so that you can then load the new data
+        clear_directories(list_of_dir_to_clear)
+        print('cleared dir')
 
-    for model_name in list_of_model_names:
-        run_name = f'{K5_curr_Split}_{model_name}'
-        
-        list_of_args = [model_name, cfg_path, run_name]
+        # move the images and annotations into the correct directories based on the current split
+        move_images_and_annotations_to_correct_folders(list_of_dir_to_clear)
+        print('moved images and anno to dirs')
 
-        print(f'run model {run_name}')
-        #print(f'list of args: {list_of_args}')
-        #print(script_name)
+        for model_name in list_of_model_names:
+            # for running a specific split
+            if model_name in ['yolov8m.yaml']:
 
-        run_script(script_name, list_of_args)
+                run_name = f'{K5_curr_Split}_{model_name}'
+                run_name_val = f'{K5_curr_Split}_{model_name}/val'
+
+                val_model_path = f'/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/runs/detect/{run_name}/weights/best.pt'
+                
+                list_of_args = [model_name, cfg_path, run_name]
+
+                # don't actually need cfg_path for the val but it is easier to keep it in so we don't have to rewrite the detection_experiments_gen_val.py too much
+                list_of_args_val = [val_model_path, cfg_path, run_name_val]
+
+                #print(f'run model {run_name}')
+                #print(f'list of args: {list_of_args}')
+                #print(script_name_val)
+                #print(f'run model {run_name_val}')
+                #print(f'model path {val_model_path}')
+                #print(script_name)
+                #print(f'run model {run_name}')
+                #print(f'model path {model_name}')
 
 
+                run_script(script_name, list_of_args)
 
 
 
