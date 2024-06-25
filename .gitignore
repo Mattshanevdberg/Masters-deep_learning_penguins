@@ -65,6 +65,7 @@ python-version
 # Exclude directories containing large datasets or model weights
 data/
 runs/
+notebooks/AdamW_Tune
 #logs/
 #outputs/
 
