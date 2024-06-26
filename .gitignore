@@ -64,7 +64,10 @@ python-version
 #*.ckpt
 # Exclude directories containing large datasets or model weights
 data/
-#models/
+runs/
+notebooks/AdamW_Tune
+notebooks/Select_Optimiser
+notebooks/SGD_Tune
 #logs/
 #outputs/
 
