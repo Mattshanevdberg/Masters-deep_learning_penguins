@@ -27,6 +27,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+#ultralytics
 
 # Jupyter Notebook checkpoints
 #.ipynb_checkpoints/
