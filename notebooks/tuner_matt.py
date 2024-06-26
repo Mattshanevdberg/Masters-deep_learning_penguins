@@ -1,3 +1,42 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+"""
+THIS IS THE MATT VERSION THAT CAN BE USED TO CONTINUE USING HYPERPARAMETER TUNING
+COPY THIS INTO THE  
+
+
+This module provides functionalities for hyperparameter tuning of the Ultralytics YOLO models for object detection,
+instance segmentation, image classification, pose estimation, and multi-object tracking.
+
+Hyperparameter tuning is the process of systematically searching for the optimal set of hyperparameters
+that yield the best model performance. This is particularly crucial in deep learning models like YOLO,
+where small changes in hyperparameters can lead to significant differences in model accuracy and efficiency.
+
+Example:
+    Tune hyperparameters for YOLOv8n on COCO8 at imgsz=640 and epochs=30 for 300 tuning iterations.
+    ```python
+    from ultralytics import YOLO
+
+    model = YOLO('yolov8n.pt')
+    model.tune(data='coco8.yaml', epochs=10, iterations=300, optimizer='AdamW', plots=False, save=False, val=False)
+    ```
+"""
+
+import random
+import shutil
+import subprocess
+import time
+
+import numpy as np
+import torch
+
+from ultralytics.cfg import get_cfg, get_save_dir
+from ultralytics.utils import DEFAULT_CFG, LOGGER, callbacks, colorstr, remove_colorstr, yaml_print, yaml_save
+from ultralytics.utils.plotting import plot_tune_results
+
+# Matt add import
+from pathlib import Path
+# Matt import end
+
 class Tuner:
     """
     Class responsible for hyperparameter tuning of YOLO models.
@@ -68,13 +107,18 @@ class Tuner:
             "mixup": (0.0, 1.0),  # image mixup (probability)
             "copy_paste": (0.0, 1.0),  # segment copy-paste (probability)
         }
-        self.args = get_cfg(overrides=args)
-        self.tune_dir = get_save_dir(self.args, name="tune")
+        self.args = get_cfg(overrides=args) # this will get the default configs but the overwrite section will 
+        # changing the below for each tuner run
+        #self.tune_dir = get_save_dir(self.args, name="tune")
+        self.tune_dir = Path("/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/AdamW_Tune/tune3") # this it the line you must change
         self.tune_csv = self.tune_dir / "tune_results.csv"
+        #self.tune_csv = self.tune_dir+"/tune_results.csv"
+        # end of change
         self.callbacks = _callbacks or callbacks.get_default_callbacks()
         self.prefix = colorstr("Tuner: ")
         callbacks.add_integration_callbacks(self)
         LOGGER.info(
+            f"{self.prefix}This is Matt's tuner() now. Remember to change the ultralytics.engine.tuner.py function when using it'\n"
             f"{self.prefix}Initialized Tuner instance with 'tune_dir={self.tune_dir}'\n"
             f"{self.prefix}💡 Learn about tuning at https://docs.ultralytics.com/guides/hyperparameter-tuning"
         )
