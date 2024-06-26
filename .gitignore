@@ -66,6 +66,8 @@ python-version
 data/
 runs/
 notebooks/AdamW_Tune
+notebooks/Select_Optimiser
+notebooks/SGD_Tune
 #logs/
 #outputs/
 
