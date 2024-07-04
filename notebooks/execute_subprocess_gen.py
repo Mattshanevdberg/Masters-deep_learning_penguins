@@ -7,7 +7,7 @@ PARENT_PATH_RAW_DATA = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_es
 K5ParentList = ['k5_data_split_list_1', 'k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']
 K5_YOLO_DATA_PATH = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/data/processed/YoloV8_dataset_OI7_parent_K5/'
 list_of_dir_to_clear = ['YoloV8_dataset_OI7_K5/images/train', 'YoloV8_dataset_OI7_K5/images/val', 'YoloV8_dataset_OI7_K5/labels/train', 'YoloV8_dataset_OI7_K5/labels/val']
-list_of_model_names = ['yolov8n.yaml', 'yolov8n.pt', 'yolov8s.yaml', 'yolov8s.pt', 'yolov8m.yaml', 'yolov8m.pt']
+list_of_model_names = ['yolov8n.yaml', 'yolov8n.pt', 'yolov8s.yaml', 'yolov8s.pt', 'yolov8m.yaml', 'yolov8m.pt','yolov10n.pt']
 script_name = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen.py'
 script_name_val = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/detection_experiments_gen_val.py'
 cfg_path = '/home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/args.yaml'
@@ -182,7 +182,7 @@ def run_script(script_name, list_of_args):
 # for loop to step through all the different k-5 combinations
 for K5_curr_Split in K5ParentList:
     # for running a specific split
-    if K5_curr_Split in ['k5_data_split_list_1', 'k5_data_split_list_2']:
+    if K5_curr_Split in ['k5_data_split_list_1', 'k5_data_split_list_2','k5_data_split_list_3','k5_data_split_list_4','k5_data_split_list_5']:
 
         # load the current split into a train and val id list
         K5_val_id_list, K5_train_id_list = perform_train_val_split(K5_curr_Split)
@@ -199,7 +199,7 @@ for K5_curr_Split in K5ParentList:
 
         for model_name in list_of_model_names:
             # for running a specific split
-            if model_name in ['yolov8m.yaml']:
+            if model_name in ['yolov10n.pt']:
 
                 run_name = f'{K5_curr_Split}_{model_name}'
                 run_name_val = f'{K5_curr_Split}_{model_name}/val'
@@ -221,7 +221,11 @@ for K5_curr_Split in K5ParentList:
                 #print(f'model path {model_name}')
 
 
-                run_script(script_name, list_of_args)
+                # train model
+                #run_script(script_name, list_of_args)
+                # run validation on model
+                run_script(script_name_val, list_of_args_val)
+                
 
 
 
