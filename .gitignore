@@ -69,6 +69,7 @@ runs/
 notebooks/AdamW_Tune
 notebooks/Select_Optimiser
 notebooks/SGD_Tune
+notebooks/Annotation_models
 #logs/
 #outputs/
 
