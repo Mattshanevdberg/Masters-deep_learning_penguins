@@ -1,0 +1,10 @@
+# 30/120 iterations complete ✅ (38982.38s)
+# Results saved to /home/matthew/Desktop/Master_Dev/masters_penguin_pose_estimation/notebooks/AdamW_Tune/tune
+# Best fitness=0.49789 observed at iteration 61
+# Best fitness metrics are None
+# Best fitness model is None
+# Best fitness hyperparameters are printed below.
+
+lrf: 0.00896
+lr0: 0.00143
+momentum: 0.71994
