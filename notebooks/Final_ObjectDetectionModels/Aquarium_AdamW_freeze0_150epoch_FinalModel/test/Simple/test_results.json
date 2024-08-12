@@ -1,0 +1,65 @@
+[
+    {
+        "results":{
+            "ap_class_index":[
+
+            ],
+            "confusion_matrix":{
+                "conf":0.3,
+                "matrix":[
+                    [
+                        0.0,
+                        0.0
+                    ],
+                    [
+                        81.0,
+                        0.0
+                    ]
+                ],
+                "task":"detect"
+            },
+            "fitness":0.0,
+            "maps":[
+
+            ],
+            "names":{
+                "0":"Penguin"
+            },
+            "plot":true,
+            "results_dict":{
+                "metrics\/precision(B)":0.0,
+                "metrics\/recall(B)":0.0,
+                "metrics\/mAP50(B)":0.0,
+                "metrics\/mAP50-95(B)":0.0,
+                "fitness":0.0
+            },
+            "speed":{
+                "preprocess":1.0605961084,
+                "inference":3.1368017197,
+                "loss":0.0037372112,
+                "postprocess":2.2920191288
+            }
+        },
+        "maps":{
+            "all_ap":[
+
+            ],
+            "ap50":[
+
+            ],
+            "curves":[
+
+            ],
+            "f1":[
+
+            ],
+            "map":0.0,
+            "map75":0.0,
+            "mp":0.0,
+            "nc":0,
+            "r":[
+
+            ]
+        }
+    }
+]

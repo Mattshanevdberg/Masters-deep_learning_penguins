@@ -13,7 +13,7 @@ cache: false
 device: 0
 workers: 8
 project: HP_Results
-name: AdamW_PostHP_final2
+name: AdamW_PostHP_final3
 exist_ok: false
 pretrained: true
 optimizer: AdamW
@@ -70,8 +70,8 @@ simplify: false
 opset: null
 workspace: 4
 nms: false
-lr0: 0.00143
-lrf: 0.00896
+lr0: 0.00089
+lrf: 0.00827
 momentum: 0.71994
 weight_decay: 0.0005
 warmup_epochs: 3.0
@@ -103,4 +103,4 @@ erasing: 0.4
 crop_fraction: 1.0
 cfg: null
 tracker: botsort.yaml
-save_dir: HP_Results/AdamW_PostHP_final2
+save_dir: HP_Results/AdamW_PostHP_final3
